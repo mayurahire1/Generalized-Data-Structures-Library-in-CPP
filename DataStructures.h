@@ -1,4 +1,4 @@
-// pragma once for this file should included only once
+// #pragma once for this file should included only once
 #pragma once
 
 // Header file inclusion
