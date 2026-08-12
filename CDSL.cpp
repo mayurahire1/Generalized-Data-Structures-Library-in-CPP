@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////
 //
-//      Project Name : Customised Data Strucures Library.
+//      Project Name : Generalized Data Strucures Library.
 //      Language Used : C++ 
 //
 //////////////////////////////////////////////////////////////
@@ -21,6 +21,8 @@ using namespace DataStructures;
 
 int main()
 {
+    //--------------------------- Singly Linear ----------------------------------
+
     // SinglyLL<int> sobj;
 
     // sobj.InsertFirst(51);
@@ -67,24 +69,76 @@ int main()
     // }
 
 
-    DoublyLL<int> dobj;
+    //--------------------------- Doubly Linear ----------------------------------
 
-    dobj.InsertFirst(51);
-    dobj.InsertFirst(21);
-    dobj.InsertFirst(11);
+    // DoublyLL<int> dobj;
 
-    dobj.Display();
-    cout << "Number of nodes  : " << dobj.Count() << endl << endl;
+    // dobj.InsertFirst(51);
+    // dobj.InsertFirst(21);
+    // dobj.InsertFirst(11);
+
+    // dobj.Display();
+    // cout << "Number of nodes  : " << dobj.Count() << endl << endl;
 
     
-    dobj.InsertLast(101);
-    dobj.InsertLast(111);
-    dobj.InsertLast(121);
+    // dobj.InsertLast(101);
+    // dobj.InsertLast(111);
+    // dobj.InsertLast(121);
 
-    dobj.Display();
-    cout << "Number of nodes  : " << dobj.Count() << endl << endl;
+    // dobj.Display();
+    // cout << "Number of nodes  : " << dobj.Count() << endl << endl;
 
-   return 0;
+    // dobj.InsertAtPos(99,4);
+
+    // dobj.Display();
+    // cout << "Number of nodes  : " << dobj.Count() << endl << endl;
+
+    // dobj.DeleteFirst();
+    
+    // dobj.Display();
+    // cout << "Number of nodes  : " << dobj.Count() << endl << endl;
+
+    // dobj.DeleteLast();
+
+    // dobj.Display();
+    // cout << "Number of nodes  : " << dobj.Count() << endl << endl;
+
+    // dobj.DeleteAtPos(3);
+
+    // dobj.Display();
+    // cout << "Number of nodes  : " << dobj.Count() << endl << endl;
+
+    // if(dobj.Search(99))
+    // {
+    //     cout << "Element is present in the list" << endl;
+    // }
+    // else
+    // {
+    //     cout << "Element is not present in the list" << endl;
+    // }
+
+
+    // ----------------------- Singly Circular Linked List -----------------------
+
+    SinglyCL<int> scobj;
+
+    scobj.InsertFirst(51);
+    scobj.InsertFirst(21);
+    scobj.InsertFirst(11);
+
+    scobj.Display();
+    cout << "Number of nodes  : " << scobj.Count() << endl << endl;
+
+    scobj.InsertLast(101);
+    scobj.InsertLast(121);
+    scobj.InsertLast(111);
+
+    scobj.Display();
+    cout << "Number of nodes  : " << scobj.Count() << endl << endl;
+
+    scobj.InsertAtPos(99,4);
+
+    scobj.Display();
+    cout << "Number of nodes  : " << scobj.Count() << endl << endl;
+    return 0;
 }
-
-

@@ -79,7 +79,45 @@ namespace DataStructures
 
             bool Search(T);
     };
+
+    ////////////////////////////////////////
+    //
+    //  Singly Circular Linked List
+    //
+    ///////////////////////////////////////
+    template<class T>
+    class SinglyCL
+    {
+        private:
+            // Node structure of Doubly Linear Linked List
+            struct Node
+            {
+                T data;
+                Node *next;
+            };
+
+            Node *first;            // Points to head Node
+            Node *last;             // Points to tail Node
+            int iCount;             // Maintain number of count
+
+        public:
+            SinglyCL();
+            
+            void Display();
+            int Count();
+
+            void InsertFirst(T);
+            void InsertLast(T);
+            void InsertAtPos(T, int);
+
+            void DeleteFirst();
+            void DeleteLast();
+            void DeleteAtPos(int);
+
+            bool Search(T);
+    };
 }
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -506,6 +544,369 @@ void DataStructures :: DoublyLL<T> :: InsertLast(T no)
     iCount++;
 }
 
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  InsertAtPosition
+//    Input         :  T, int
+//    Output        :  void
+//    Description   :  Insert the element at the given position
+//
+////////////////////////////////////////////////////////////
+template <class T>
+void DataStructures :: DoublyLL<T> :: InsertAtPos(T no, int iPos)
+{
+    int i = 0;
+    Node *newn = NULL;
+    Node *temp = NULL;
+
+    if((iPos < 1) || (iPos >= iCount + 1))
+    {
+        cout << "Invalid Position";
+        return;
+    }
+
+    if(iPos == 1)
+    {
+        InsertFirst(no);
+    }
+    else if(iPos == iCount+1)
+    {
+        InsertLast(no);
+    }
+    else
+    {
+        temp = first;
+
+        newn = new Node;
+        newn->data = no;
+        newn->next = NULL;
+        newn->prev = NULL;
+
+        for(i = 1; i < (iPos-1); i++)
+        {
+            temp = temp->next;
+        }
+
+        newn->next = temp->next;
+        temp->next->prev = newn;
+        newn->prev = temp;
+        temp->next = newn;
+
+        iCount++;
+    }
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  DeleteFirst
+//    Output        :  void
+//    Description   :  Delete element from first Position
+//
+////////////////////////////////////////////////////////////
+template <class T>
+void DataStructures :: DoublyLL<T> :: DeleteFirst()
+{
+
+    if(first == NULL)
+    {
+        return;
+    }
+    else if(first->next == NULL)
+    {
+        free(first);
+        first = NULL;
+    }
+    else
+    {
+        first = first->next;
+        free(first->prev);
+        first->prev = NULL;
+    }
+    iCount--;
+}
+
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  DeleteLast
+//    Output        :  void
+//    Description   :  Delete element from last Position
+//
+////////////////////////////////////////////////////////////
+template <class T>
+void DataStructures :: DoublyLL<T> :: DeleteLast()
+{
+    Node *temp = NULL;
+
+    if(first == NULL)
+    {
+        return;
+    }
+    else if(first->next == NULL)
+    {
+        free(first);
+        first = NULL;
+    }
+    else
+    {
+        temp = first;
+
+        while(temp->next->next != NULL)
+        {
+            temp = temp->next;
+        }
+
+        free(temp->next);
+        temp->next = NULL;
+    }
+    iCount--;
+}
+
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  DeleteAtPos
+//    Input         :  int
+//    Output        :  void
+//    Description   :  Delete element from the given Position
+//
+////////////////////////////////////////////////////////////
+template <class T>
+void DataStructures :: DoublyLL<T> :: DeleteAtPos(int iPos)
+{
+    int i = 0;
+    Node *temp = NULL;
+
+    if((iPos < 1) || (iPos > iCount))
+    {
+        return;
+    }
+
+    if(iPos == 1)
+    {
+        DeleteFirst();
+    }
+    else if(iPos == iCount)
+    {
+        DeleteLast();
+    }
+    else
+    {
+        temp = first;
+
+        for(i = 1; i < (iPos - 1); i++)
+        {
+            temp = temp->next;
+        }
+
+        temp->next = temp->next->next;
+        free(temp->next->prev);
+        temp->next->prev = temp;
+
+        iCount--;
+    }
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Search
+//    Input         :  T
+//    Output        :  bool
+//    Description   :  Search the given element in the linked list
+//
+////////////////////////////////////////////////////////////
+template <class T>
+bool DataStructures :: DoublyLL<T> :: Search(T key)
+{
+    Node *temp = first;
+
+    while(temp != NULL)
+    {
+        if(temp->data == key)
+        {
+            return true;
+        }
+
+        temp = temp->next;
+    }
+
+    return false;
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////
-// ---------------------Doubly Linear Linked list functions definions end-------------
+// --------------------- Doubly Linear Linked list functions definions end -------------
+///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+// --------------------- Singly Circular Linked list functions definions start --------
+///////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+DataStructures :: SinglyCL<T> :: SinglyCL()
+{
+    first = NULL;
+    last = NULL;
+    iCount = 0;
+}
+
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Display
+//    Output        :  void
+//    Description   :  Dislay all the elements from the linked list
+//
+////////////////////////////////////////////////////////////
+template<class T>
+void DataStructures :: SinglyCL<T> :: Display()
+{
+    if(first == NULL && last == NULL)
+    {
+        return;
+    }
+
+    Node *temp = first;
+
+    do
+    {
+        cout << "| " << temp->data << " | -> ";
+        temp = temp->next;
+    } while (temp != first);
+
+    cout << "(first)" << endl;
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Count
+//    Output        :  int
+//    Description   :  Count the number of nodes from the linked list
+//
+////////////////////////////////////////////////////////////
+template<class T>
+int DataStructures :: SinglyCL<T> :: Count()
+{
+    return iCount;
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  InsertFirst
+//    Input         :  T
+//    Output        :  void
+//    Description   :  Insert element at the first position 
+//
+////////////////////////////////////////////////////////////
+template<class T>
+void DataStructures :: SinglyCL<T> ::  InsertFirst(T no)
+{
+    Node *newn = NULL;
+
+    newn = new Node;
+    newn->data = no;
+    newn->next = NULL;
+
+    if(first == NULL && last == NULL)
+    {
+        first = newn;
+        last = newn;
+    }
+    else
+    {
+        newn->next = first;
+        first = newn;  
+    }
+
+    last->next = first;
+    iCount++;
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  InsertLast
+//    Input         :  T
+//    Output        :  void
+//    Description   :  Insert element at the last position 
+//
+////////////////////////////////////////////////////////////
+template<class T>
+void DataStructures :: SinglyCL<T> :: InsertLast(T no)
+{
+    Node *newn = NULL;
+
+    newn = new Node;
+    newn->data = no;
+    newn->next = NULL;
+
+    if(first == NULL && last == NULL)
+    {
+        first = newn;
+        last = newn;
+    }
+    else 
+    {
+        last->next = newn;
+        last = newn;
+    }
+
+    last->next = first;
+    iCount++;   
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  InsertAtPos
+//    Input         :  T, int
+//    Output        :  void
+//    Description   :  Insert element at the given position 
+//
+////////////////////////////////////////////////////////////
+template<class T>
+void DataStructures :: SinglyCL<T> :: InsertAtPos(T no, int iPos)
+{
+    int i = 0;
+    Node *newn = NULL;
+    Node *temp = NULL;
+
+    if(iPos < 1 || (iPos > iCount+1))
+    {
+        cout << "Invalid Position";
+        return;
+    }
+
+    if(iPos == 1)
+    {
+        InsertFirst(no);
+    }
+    else if(iPos == iCount+1)
+    {
+        InsertLast(no);
+    }
+    else
+    {
+        temp = first;
+
+        newn = new Node;
+        newn->data = no;
+        newn->next = NULL;
+
+        for(i = 1; i < iPos-1; i++)
+        {
+            temp = temp->next;
+        }
+
+        newn->next = temp->next;
+        temp->next = newn;
+
+        last->next = first;
+        iCount++;
+    }
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+// --------------------- Singly Circular Linked list functions definions end --------
 ///////////////////////////////////////////////////////////////////////////////////////
