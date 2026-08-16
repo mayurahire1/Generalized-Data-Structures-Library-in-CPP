@@ -130,8 +130,8 @@ int main()
     cout << "Number of nodes  : " << scobj.Count() << endl << endl;
 
     scobj.InsertLast(101);
-    scobj.InsertLast(121);
     scobj.InsertLast(111);
+    scobj.InsertLast(121);
 
     scobj.Display();
     cout << "Number of nodes  : " << scobj.Count() << endl << endl;
@@ -140,5 +140,31 @@ int main()
 
     scobj.Display();
     cout << "Number of nodes  : " << scobj.Count() << endl << endl;
+
+    scobj.DeleteFirst();
+
+    scobj.Display();
+    cout << "Number of nodes  : " << scobj.Count() << endl << endl;
+    
+    scobj.DeleteLast();
+
+    scobj.Display();
+    cout << "Number of nodes  : " << scobj.Count() << endl << endl;
+
+    scobj.DeleteAtPos(3);
+
+    scobj.Display();
+    cout << "Number of nodes  : " << scobj.Count() << endl << endl;
+
+    if(scobj.Search(99))
+    {
+        cout << "Element is present in the list" << endl;
+    }
+    else
+    {
+        cout << "Element is not present in the list" << endl;
+    }
+    
+
     return 0;
 }

@@ -24,7 +24,7 @@ namespace DataStructures
             };
 
             Node *first;            // Points to head Node
-            int iCount;             // Maintain number of count
+            int iCount;             // Maintain number of nodes
 
         public:
             SinglyLL();
@@ -61,7 +61,7 @@ namespace DataStructures
             };
 
             Node *first;            // Points to head Node
-            int iCount;             // Maintain number of count
+            int iCount;             // Maintain number of nodes
 
         public:
             DoublyLL();
@@ -98,7 +98,7 @@ namespace DataStructures
 
             Node *first;            // Points to head Node
             Node *last;             // Points to tail Node
-            int iCount;             // Maintain number of count
+            int iCount;             // Maintain number of nodes
 
         public:
             SinglyCL();
@@ -116,6 +116,46 @@ namespace DataStructures
 
             bool Search(T);
     };
+
+
+    ////////////////////////////////////////
+    //
+    //  Doubly Circular Linked List
+    //
+    ///////////////////////////////////////
+    template<class T>
+    class DoublyCL
+    {
+        private:
+            // Node structure of Doubly circular Linked List
+            struct Node
+            {
+                T data;
+                Node *next;
+                Node *prev;
+            };
+
+            Node *first;            // Points to head Node
+            Node *last;             // Points to tail Node
+            int iCount;             // Maintain number of nodes
+
+        public:
+            DoublyCL();
+            
+            void Display();
+            int Count();
+
+            void InsertFirst(T);
+            void InsertLast(T);
+            void InsertAtPos(T, int);
+
+            void DeleteFirst();
+            void DeleteLast();
+            void DeleteAtPos(int);
+
+            bool Search(T);
+    };
+
 }
 
 
@@ -614,13 +654,13 @@ void DataStructures :: DoublyLL<T> :: DeleteFirst()
     }
     else if(first->next == NULL)
     {
-        free(first);
+        delete first;
         first = NULL;
     }
     else
     {
         first = first->next;
-        free(first->prev);
+        delete first->prev;
         first->prev = NULL;
     }
     iCount--;
@@ -645,7 +685,7 @@ void DataStructures :: DoublyLL<T> :: DeleteLast()
     }
     else if(first->next == NULL)
     {
-        free(first);
+        delete first;
         first = NULL;
     }
     else
@@ -657,7 +697,7 @@ void DataStructures :: DoublyLL<T> :: DeleteLast()
             temp = temp->next;
         }
 
-        free(temp->next);
+        delete temp->next;
         temp->next = NULL;
     }
     iCount--;
@@ -701,7 +741,7 @@ void DataStructures :: DoublyLL<T> :: DeleteAtPos(int iPos)
         }
 
         temp->next = temp->next->next;
-        free(temp->next->prev);
+        delete temp->next->prev;
         temp->next->prev = temp;
 
         iCount--;
@@ -905,6 +945,169 @@ void DataStructures :: SinglyCL<T> :: InsertAtPos(T no, int iPos)
         iCount++;
     }
 }
+
+
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  DeleteFirst
+//    Output        :  void
+//    Description   :  Delete element from first Position
+//
+////////////////////////////////////////////////////////////
+template<class T>
+void DataStructures :: SinglyCL<T> :: DeleteFirst()
+{
+    if(first == NULL && last == NULL)
+    {
+        return;
+    }
+    else if(first == last)
+    {
+        delete first;
+        first = NULL;
+        last = NULL;
+    }
+    else
+    {
+        first = first->next;
+        delete last->next;
+    }
+    last->next = first;
+    iCount--;
+}
+
+
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  DeleteLast
+//    Output        :  void
+//    Description   :  Delete element from last Position
+//
+////////////////////////////////////////////////////////////
+template<class T>
+void DataStructures :: SinglyCL<T> :: DeleteLast()
+{
+    Node *temp = NULL;
+
+    if(first == NULL && last == NULL)
+    {
+        return;
+    }
+    else if(first == last)
+    {
+        delete first;
+        first = NULL;
+        last = NULL;
+    }
+    else
+    {
+        temp = first;
+
+        while (temp->next->next != first)
+        {
+            temp = temp->next;
+        }
+
+        last = temp;
+        delete temp->next;
+    }
+
+    last->next = first;
+    iCount--;
+}
+
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  DeleteAtPos
+//    Input         :  int
+//    Output        :  void
+//    Description   :  Delete element from the given Position
+//
+////////////////////////////////////////////////////////////
+template <class T>
+void DataStructures :: SinglyCL<T> :: DeleteAtPos(int iPos)
+{
+    if(iPos < 1 || iPos > iCount)
+    {
+        cout << "Invalid Position";
+        return;
+    }
+
+    if(iPos == 1)
+    {
+        DeleteFirst();
+    }
+    else if(iPos == iCount)
+    {
+        DeleteLast();
+    }
+    else
+    {
+        Node *temp = first;
+
+        for(int i = 1; i < (iPos - 1); i++)
+        {
+            temp = temp->next;
+        }
+
+        Node *target = temp->next;
+
+        temp->next = temp->next->next;
+
+        delete target;
+
+        last->next = first;
+        iCount--;
+    }
+}
+
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Search
+//    Input         :  T
+//    Output        :  bool
+//    Description   :  Search the given element in the linked list
+//
+////////////////////////////////////////////////////////////
+template <class T>
+bool DataStructures :: SinglyCL<T> :: Search(T key)
+{
+    Node *temp = first;
+
+    if(first == NULL || last == NULL)
+    {
+        cout << "Nothing to search";
+        return false;
+    }
+
+    do
+    {
+        if(temp->data == key)
+        {
+            return true;
+        }
+
+        temp = temp->next;
+    }while(temp != first);
+    
+
+    return false;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+// --------------------- Singly Circular Linked list functions definions end --------
+///////////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+// --------------------- Doubly Circular Linked list functions definions start --------
+///////////////////////////////////////////////////////////////////////////////////////
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////
