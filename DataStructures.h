@@ -156,6 +156,66 @@ namespace DataStructures
             bool Search(T);
     };
 
+    
+    ////////////////////////////////////////
+    //
+    //  STACK
+    //  (Used Linked list implementation)
+    //
+    ///////////////////////////////////////
+    template<class T>
+    class Stack
+    {
+        private:
+            // Node structure of singly linear Linked List
+            struct Node
+            {
+                T data;
+                Node *next;
+            };
+
+            Node *top;            // Points to head Node
+            int iCount;             // Maintain number of nodes
+
+        public:
+            Stack();
+
+            void Push(T);
+            T Pop();
+            T Peek();
+            int Count();
+            void Display();
+    };
+
+
+    ////////////////////////////////////////
+    //
+    //  QUEUE
+    //  (Used Linked list implementation)
+    //
+    ///////////////////////////////////////
+    template<class T>
+    class Queue
+    {
+        private:
+            // Node structure of singly linear Linked List
+            struct Node
+            {
+                T data;
+                Node *next;
+            };
+
+            Node *front;            // Points to head Node
+            int iCount;             // Maintain number of nodes
+
+        public:
+            Queue();
+
+            void Enqueue(T);
+            T Deque();
+            int Count();
+            void Display();
+    };
 }
 
 
@@ -1104,12 +1164,580 @@ bool DataStructures :: SinglyCL<T> :: Search(T key)
 ///////////////////////////////////////////////////////////////////////////////////////
 
 
+
 ///////////////////////////////////////////////////////////////////////////////////////
 // --------------------- Doubly Circular Linked list functions definions start --------
 ///////////////////////////////////////////////////////////////////////////////////////
 
+template <class T>
+DataStructures :: DoublyCL<T> :: DoublyCL()
+{
+    first = NULL;
+    last = NULL;
+    iCount = 0;
+}
+
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Display
+//    Output        :  void
+//    Description   :  Dislay all the elements from the linked list
+//
+////////////////////////////////////////////////////////////
+template <class T>
+void DataStructures :: DoublyCL<T> :: Display()
+{
+    if(first == NULL || last == NULL)
+    {
+        return;
+    }
+
+    Node *temp = first;
+    
+    cout << "(last) <=> ";
+
+    do
+    {
+        cout << "| " << temp->data << " | <=> " ;    
+        temp = temp->next;
+    } while (temp != first);
+    
+    cout << " (first) " << endl;
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Count
+//    Output        :  int
+//    Description   :  Count the number of nodes from the linked list
+//
+////////////////////////////////////////////////////////////
+template <class T>
+int DataStructures :: DoublyCL<T> :: Count()
+{
+    return iCount;
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  InsertFirst
+//    Input         :  T
+//    Output        :  void
+//    Description   :  Insert element at the first position 
+//
+////////////////////////////////////////////////////////////
+template <class T>
+void DataStructures :: DoublyCL<T> :: InsertFirst(T no)
+{
+    Node *newn = NULL;
+
+    newn = new Node;
+    newn->data = no;
+    newn->next = NULL;
+    newn->prev = NULL;
+
+    if(first == NULL && last == NULL)
+    {
+        first = newn;
+        last = newn;
+    }
+    else
+    {
+        newn->next = first;
+        newn->prev = last;
+        first = newn;
+    }
+
+    first->prev = last;
+    last->next = first;
+
+    iCount++;
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  InsertLast
+//    Input         :  T
+//    Output        :  void
+//    Description   :  Insert element at the last position 
+//
+////////////////////////////////////////////////////////////
+template<class T>
+void DataStructures :: DoublyCL<T> :: InsertLast(T no)
+{
+    Node *newn = NULL;
+    Node *temp = NULL;
+
+    newn = new Node;
+    newn->data = no;
+    newn->next = NULL;
+    newn->prev = NULL;
+
+    if(first == NULL && last == NULL)
+    {
+        first = newn;
+        last = newn;
+    }
+    else
+    {
+        last->next = newn;
+        newn->prev = last;
+
+        last = newn;
+    }
+
+    last->next = first;
+    first->prev = last;
+
+    iCount++;
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  InsertAtPos
+//    Input         :  T, int
+//    Output        :  void
+//    Description   :  Insert element at the given position 
+//
+////////////////////////////////////////////////////////////
+template <class T>
+void DataStructures :: DoublyCL<T> :: InsertAtPos(T no, int iPos)
+{
+    int i = 0;
+    
+    Node *newn = NULL;
+    Node *temp = NULL;
+
+    if(iPos < 1 || iPos > iCount+1)
+    {
+        cout << "Invalid position" << endl;
+        return;
+    }
+
+    if(iPos == 1)
+    {
+        InsertFirst(no);
+    }
+    else if(iPos == iCount+1)
+    {
+        InsertLast(no);
+    }
+    else
+    {
+        temp = first;
+
+        newn = new Node;
+        newn->data = no;
+        newn->next = NULL;
+        newn->prev = NULL;
+
+        for(i = 1; i < iPos - 1; i++)
+        {
+            temp = temp->next;
+        }
+
+        newn->next = temp->next;
+        temp->next->prev= newn;
+        newn->prev = temp;
+        temp->next = newn;
+
+        last->next = first;
+        first->prev = last;
+
+        iCount++;
+    }
+}
+
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  DeleteFirst
+//    Output        :  void
+//    Description   :  Delete element from first Position
+//
+////////////////////////////////////////////////////////////
+template<class T>
+void DataStructures :: DoublyCL<T> :: DeleteFirst()
+{
+    if(first == NULL || last == NULL)
+    {
+        return;
+    }
+
+    if(first == last)
+    {
+        delete first;
+    }
+    else
+    {
+        first = first->next;
+
+        delete last->next;
+    }
+
+    first->prev = last;
+    last->next = first;
+
+    iCount--;
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  DeleteLast
+//    Output        :  void
+//    Description   :  Delete element from last Position
+//
+////////////////////////////////////////////////////////////
+template<class T>
+void DataStructures :: DoublyCL<T> :: DeleteLast()
+{
+    if(first == NULL || last == NULL)
+    {
+        return;
+    }
+
+    if(first == last)
+    {
+        delete first;
+    }
+    else
+    {
+        last = last->prev;
+        delete first->prev;
+    }
+
+    first->prev = last;
+    last->next = first;
+
+    iCount--;
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  DeleteLast
+//    Output        :  void
+//    Description   :  Delete element from last Position
+//
+////////////////////////////////////////////////////////////
+template<class T>
+void DataStructures :: DoublyCL<T> :: DeleteAtPos(int iPos)
+{
+    int i = 0;
+    Node *temp = NULL;
+
+    if(iPos < 1 || iPos > iCount)
+    {
+        cout << "Invalid Position" << endl;
+        return;
+    }
+
+    if(iPos == 1)
+    {
+        DeleteFirst();
+    }
+    else if(iPos == iCount)
+    {
+        DeleteLast();
+    }
+    else
+    {
+        temp = first;
+
+        for(i = 1; i < iPos -1; i++)
+        {
+            temp = temp->next;
+        }
+
+        temp->next = temp->next->next;
+        delete temp->next->prev;
+        temp->next->prev = temp;
+
+        first->prev = last;
+        last->next = first;
+
+        iCount--;
+    }
+
+}
+
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Search
+//    Input         :  T
+//    Output        :  bool
+//    Description   :  Search the given element in the linked list
+//
+////////////////////////////////////////////////////////////
+template <class T>
+bool DataStructures :: DoublyCL<T> :: Search(T key)
+{
+    Node *temp = first;
+
+    if(first == NULL || last == NULL)
+    {
+        cout << "Nothing to search";
+        return false;
+    }
+
+    do
+    {
+        if(temp->data == key)
+        {
+            return true;
+        }
+
+        temp = temp->next;
+    }while(temp != first);
+    
+
+    return false;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////
+// --------------------- Doubly Circular Linked list functions definions end --------
+///////////////////////////////////////////////////////////////////////////////////////
+
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////
-// --------------------- Singly Circular Linked list functions definions end --------
+// --------------------- STACK functions definions start --------
+///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+template <class T>
+DataStructures :: Stack<T> :: Stack()
+{
+    top = NULL;
+    iCount = 0;
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Display
+//    Output        :  void
+//    Description   :  Dislay all the elements from the Stack
+//
+////////////////////////////////////////////////////////////
+template<class T>
+void DataStructures :: Stack<T> :: Display()
+{
+    Node *temp = top;
+
+    while(temp != NULL)
+    {
+        cout << " | " << temp->data << " | " << endl;
+        temp = temp->next;
+    }
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Count
+//    Output        :  int
+//    Description   :  Count the number of nodes from the stack
+//
+////////////////////////////////////////////////////////////
+template<class T>
+int DataStructures :: Stack<T> :: Count()
+{
+    return iCount;
+}
+
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Push
+//    Input         :  T
+//    Output        :  void
+//    Description   :  Insert element at the top position 
+//
+////////////////////////////////////////////////////////////
+template<class T>
+void DataStructures :: Stack<T> :: Push(T no)
+{
+    Node *newn = NULL;
+
+    newn = new Node;
+
+    newn->data = no;
+    newn->next = NULL;
+
+    if(top == NULL)
+    {
+        top = newn;
+    }
+    else
+    {
+        newn->next = top;
+        top = newn;
+    }
+
+    iCount++;
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Pop
+//    Output        :  int
+//    Description   :  Delete element from the top position 
+//
+////////////////////////////////////////////////////////////
+template<class T>
+T DataStructures :: Stack<T> :: Pop()
+{
+    Node *temp = NULL;
+    T iValue;
+
+    if(top == NULL)
+    {
+        cout << "Stack is empty";
+        return -1;
+    }
+
+    temp = top;
+
+    iValue = top->data;
+
+    top = top->next;
+    delete temp;
+
+    iCount--;
+
+    return iValue;
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Pop
+//    Output        :  T
+//    Description   :  Return the top element  
+//
+////////////////////////////////////////////////////////////
+template<class T>
+T DataStructures :: Stack<T> :: Peek()
+{
+    return top->data;
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+// --------------------- QUEUE functions definions start ----------------------------
+///////////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+DataStructures :: Queue<T> :: Queue()
+{
+    front = NULL;
+    iCount = 0;
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Display
+//    Output        :  void
+//    Description   :  Dislay all the elements from the Queue
+//
+////////////////////////////////////////////////////////////
+template<class T>
+void DataStructures :: Queue<T> :: Display()
+{
+    Node *temp = front;
+
+    while(temp != NULL)
+    {
+        cout << " | " << temp->data << " | " << endl;
+        temp = temp->next;
+    }
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Count
+//    Output        :  int
+//    Description   :  Count the number of nodes from the Queue
+//
+////////////////////////////////////////////////////////////
+template<class T>
+int DataStructures :: Queue<T> :: Count()
+{
+    return iCount;
+}
+
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Enqueue
+//    Input         :  T
+//    Output        :  void
+//    Description   :  Insert element at the front position 
+//
+////////////////////////////////////////////////////////////
+template<class T>
+void DataStructures :: Queue<T> :: Enqueue(T no)
+{
+    Node *newn = NULL;
+
+    newn = new Node;
+
+    newn->data = no;
+    newn->next = NULL;
+
+    if(front == NULL)
+    {
+        front = newn;
+    }
+    else
+    {
+        newn->next = front;
+        front = newn;
+    }
+
+    iCount++;
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Deque
+//    Output        :  int
+//    Description   :  Delete element from the last position 
+//
+////////////////////////////////////////////////////////////
+template<class T>
+T DataStructures :: Queue<T> :: Deque()
+{
+    Node *temp = NULL;
+    T iValue;
+
+    if(front == NULL)
+    {
+        cout << "Queue is empty";
+        return -1;
+    }
+
+    temp = front;
+
+    while(temp->next->next)
+    {
+        temp = temp->next;
+    }
+
+    iValue = temp->next->data;
+
+    delete temp->next;
+    temp->next = NULL;
+
+    iCount--;
+
+    return iValue;
+}
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+// --------------------- QUEUE functions definions end -----------------------------
 ///////////////////////////////////////////////////////////////////////////////////////
