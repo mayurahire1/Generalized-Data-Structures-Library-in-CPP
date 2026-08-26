@@ -233,20 +233,48 @@ int main()
 
     // ----------------------- Queue -----------------------
 
-    Queue<int> queue;
+    // Queue<int> queue;
 
-    queue.Enqueue(11);
-    queue.Enqueue(21);
-    queue.Enqueue(51);
-    queue.Enqueue(101);
+    // queue.Enqueue(11);
+    // queue.Enqueue(21);
+    // queue.Enqueue(51);
+    // queue.Enqueue(101);
 
-    queue.Display();
-    cout << "Number of elements  : " << queue.Count() << endl << endl;
+    // queue.Display();
+    // cout << "Number of elements  : " << queue.Count() << endl << endl;
 
-    cout << "Deleted Element is : " << queue.Deque() << endl;
+    // cout << "Deleted Element is : " << queue.Deque() << endl;
 
-    queue.Display();
-    cout << "Number of elements  : " << queue.Count() << endl << endl;
+    // queue.Display();
+    // cout << "Number of elements  : " << queue.Count() << endl << endl;
+
+    // ----------------------- BST -----------------------
+
+    BST<int> bst;
+
+    bst.Insert(25);
+    bst.Insert(11);
+    bst.Insert(21);
+
+    cout << "Inorder Traversal : ";
+    bst.Inorder();
+
+    cout << "Preorder Traversal : ";
+    bst.Preorder();
+
+    cout << "Postorder Traversal : ";
+    bst.Postorder();
+
+    cout << "Number of nodes are : " << bst.Count() << endl;
+
+    if(bst.Search(101))
+    {
+        cout << "Element is present in the list" << endl;
+    }
+    else
+    {
+        cout << "Element is not present in the list" << endl;
+    }
 
     return 0;
 }

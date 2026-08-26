@@ -2,7 +2,7 @@
 #pragma once
 
 // Header file inclusion
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 namespace DataStructures
@@ -12,35 +12,35 @@ namespace DataStructures
     //  Singly Linear Linked List
     //
     ///////////////////////////////////////
-    template<class T>
+    template <class T>
     class SinglyLL
     {
-        private:
-            // Node structure of Singly Linear Linked List
-            struct Node
-            {
-                T data;
-                Node *next;
-            };
+    private:
+        // Node structure of Singly Linear Linked List
+        struct Node
+        {
+            T data;
+            Node *next;
+        };
 
-            Node *first;            // Points to head Node
-            int iCount;             // Maintain number of nodes
+        Node *first; // Points to head Node
+        int iCount;  // Maintain number of nodes
 
-        public:
-            SinglyLL();
-            
-            void Display();
-            int Count();
+    public:
+        SinglyLL();
 
-            void InsertFirst(T);
-            void InsertLast(T);
-            void InsertAtPos(T, int);
+        void Display();
+        int Count();
 
-            void DeleteFirst();
-            void DeleteLast();
-            void DeleteAtPos(int);
+        void InsertFirst(T);
+        void InsertLast(T);
+        void InsertAtPos(T, int);
 
-            bool Search(T);
+        void DeleteFirst();
+        void DeleteLast();
+        void DeleteAtPos(int);
+
+        bool Search(T);
     };
 
     ////////////////////////////////////////
@@ -48,36 +48,36 @@ namespace DataStructures
     //  Doubly Linear Linked List
     //
     ///////////////////////////////////////
-    template<class T>
+    template <class T>
     class DoublyLL
     {
-        private:
-            // Node structure of Doubly Linear Linked List
-            struct Node
-            {
-                T data;
-                Node *next;
-                Node *prev;
-            };
+    private:
+        // Node structure of Doubly Linear Linked List
+        struct Node
+        {
+            T data;
+            Node *next;
+            Node *prev;
+        };
 
-            Node *first;            // Points to head Node
-            int iCount;             // Maintain number of nodes
+        Node *first; // Points to head Node
+        int iCount;  // Maintain number of nodes
 
-        public:
-            DoublyLL();
-            
-            void Display();
-            int Count();
+    public:
+        DoublyLL();
 
-            void InsertFirst(T);
-            void InsertLast(T);
-            void InsertAtPos(T, int);
+        void Display();
+        int Count();
 
-            void DeleteFirst();
-            void DeleteLast();
-            void DeleteAtPos(int);
+        void InsertFirst(T);
+        void InsertLast(T);
+        void InsertAtPos(T, int);
 
-            bool Search(T);
+        void DeleteFirst();
+        void DeleteLast();
+        void DeleteAtPos(int);
+
+        bool Search(T);
     };
 
     ////////////////////////////////////////
@@ -85,108 +85,105 @@ namespace DataStructures
     //  Singly Circular Linked List
     //
     ///////////////////////////////////////
-    template<class T>
+    template <class T>
     class SinglyCL
     {
-        private:
-            // Node structure of Doubly Linear Linked List
-            struct Node
-            {
-                T data;
-                Node *next;
-            };
+    private:
+        // Node structure of Doubly Linear Linked List
+        struct Node
+        {
+            T data;
+            Node *next;
+        };
 
-            Node *first;            // Points to head Node
-            Node *last;             // Points to tail Node
-            int iCount;             // Maintain number of nodes
+        Node *first; // Points to head Node
+        Node *last;  // Points to tail Node
+        int iCount;  // Maintain number of nodes
 
-        public:
-            SinglyCL();
-            
-            void Display();
-            int Count();
+    public:
+        SinglyCL();
 
-            void InsertFirst(T);
-            void InsertLast(T);
-            void InsertAtPos(T, int);
+        void Display();
+        int Count();
 
-            void DeleteFirst();
-            void DeleteLast();
-            void DeleteAtPos(int);
+        void InsertFirst(T);
+        void InsertLast(T);
+        void InsertAtPos(T, int);
 
-            bool Search(T);
+        void DeleteFirst();
+        void DeleteLast();
+        void DeleteAtPos(int);
+
+        bool Search(T);
     };
-
 
     ////////////////////////////////////////
     //
     //  Doubly Circular Linked List
     //
     ///////////////////////////////////////
-    template<class T>
+    template <class T>
     class DoublyCL
     {
-        private:
-            // Node structure of Doubly circular Linked List
-            struct Node
-            {
-                T data;
-                Node *next;
-                Node *prev;
-            };
+    private:
+        // Node structure of Doubly circular Linked List
+        struct Node
+        {
+            T data;
+            Node *next;
+            Node *prev;
+        };
 
-            Node *first;            // Points to head Node
-            Node *last;             // Points to tail Node
-            int iCount;             // Maintain number of nodes
+        Node *first; // Points to head Node
+        Node *last;  // Points to tail Node
+        int iCount;  // Maintain number of nodes
 
-        public:
-            DoublyCL();
-            
-            void Display();
-            int Count();
+    public:
+        DoublyCL();
 
-            void InsertFirst(T);
-            void InsertLast(T);
-            void InsertAtPos(T, int);
+        void Display();
+        int Count();
 
-            void DeleteFirst();
-            void DeleteLast();
-            void DeleteAtPos(int);
+        void InsertFirst(T);
+        void InsertLast(T);
+        void InsertAtPos(T, int);
 
-            bool Search(T);
+        void DeleteFirst();
+        void DeleteLast();
+        void DeleteAtPos(int);
+
+        bool Search(T);
     };
 
-    
     ////////////////////////////////////////
     //
     //  STACK
     //  (Used Linked list implementation)
     //
     ///////////////////////////////////////
-    template<class T>
+    template <class T>
     class Stack
     {
-        private:
-            // Node structure of singly linear Linked List
-            struct Node
-            {
-                T data;
-                Node *next;
-            };
+    private:
+        // Node structure of singly linear Linked List
+        struct Node
+        {
+            T data;
+            Node *next;
+        };
 
-            Node *top;            // Points to head Node
-            int iCount;             // Maintain number of nodes
+        Node *top;  // Points to head Node
+        int iCount; // Maintain number of nodes
 
-        public:
-            Stack();
+    public:
+        Stack();
 
-            void Push(T);
-            T Pop();
-            T Peek();
-            int Count();
-            void Display();
+        void Push(T);
+        T Pop();
+        T Peek();
+        int Count();
+        void Display();
     };
-
 
     ////////////////////////////////////////
     //
@@ -194,38 +191,74 @@ namespace DataStructures
     //  (Used Linked list implementation)
     //
     ///////////////////////////////////////
-    template<class T>
+    template <class T>
     class Queue
     {
-        private:
-            // Node structure of singly linear Linked List
-            struct Node
-            {
-                T data;
-                Node *next;
-            };
+    private:
+        // Node structure of singly linear Linked List
+        struct Node
+        {
+            T data;
+            Node *next;
+        };
 
-            Node *front;            // Points to head Node
-            int iCount;             // Maintain number of nodes
+        Node *front; // Points to head Node
+        int iCount;  // Maintain number of nodes
 
-        public:
-            Queue();
+    public:
+        Queue();
 
-            void Enqueue(T);
-            T Deque();
-            int Count();
-            void Display();
+        void Enqueue(T);
+        T Deque();
+        int Count();
+        void Display();
+    };
+
+    ////////////////////////////////////////
+    //
+    //  Binary Search Tree (BST)
+    //
+    ///////////////////////////////////////
+    template <class T>
+    class BST
+    {
+    private:
+        struct Node
+        {
+            T data;
+            Node *lChild;
+            Node *rChild;
+        };
+
+        Node *root;
+        int iCount;
+
+    public:
+        BST();
+
+        void Insert(T);
+
+        int Count();
+
+        void Inorder();
+        void Inorder(Node*);
+
+        void Preorder();
+        void Preorder(Node *);
+
+        void Postorder();
+        void Postorder(Node*);
+
+        bool Search(T);
     };
 }
-
-
 
 ///////////////////////////////////////////////////////////////////////////////////////
 // ---------------------Singly Linear Linked list function definions start-------------
 ///////////////////////////////////////////////////////////////////////////////////////
 
-template<class T>
-DataStructures :: SinglyLL<T> :: SinglyLL()
+template <class T>
+DataStructures ::SinglyLL<T>::SinglyLL()
 {
     first = NULL;
     iCount = 0;
@@ -238,12 +271,12 @@ DataStructures :: SinglyLL<T> :: SinglyLL()
 //    Description   :  Display the Nodes of Linked List
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-void DataStructures :: SinglyLL<T> :: Display()
+template <class T>
+void DataStructures ::SinglyLL<T>::Display()
 {
     Node *temp = first;
 
-    while(temp != NULL)
+    while (temp != NULL)
     {
         cout << "| " << temp->data << " | -> ";
         temp = temp->next;
@@ -258,8 +291,8 @@ void DataStructures :: SinglyLL<T> :: Display()
 //    Description   :  Count total number of list
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-int DataStructures :: SinglyLL<T> :: Count()
+template <class T>
+int DataStructures ::SinglyLL<T>::Count()
 {
     return iCount;
 }
@@ -272,14 +305,14 @@ int DataStructures :: SinglyLL<T> :: Count()
 //    Description   :  Insert the element at first position
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-void DataStructures :: SinglyLL<T> :: InsertFirst(T no)
+template <class T>
+void DataStructures ::SinglyLL<T>::InsertFirst(T no)
 {
     Node *newn = new Node;
     newn->data = no;
     newn->next = NULL;
 
-    if(first == NULL)
+    if (first == NULL)
     {
         first = newn;
     }
@@ -291,7 +324,6 @@ void DataStructures :: SinglyLL<T> :: InsertFirst(T no)
     iCount++;
 }
 
-
 ////////////////////////////////////////////////////////////
 //
 //    Function name :  InsertLast
@@ -300,8 +332,8 @@ void DataStructures :: SinglyLL<T> :: InsertFirst(T no)
 //    Description   :  Insert the element at last position
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-void DataStructures :: SinglyLL<T> :: InsertLast(T no)
+template <class T>
+void DataStructures ::SinglyLL<T>::InsertLast(T no)
 {
     Node *temp = NULL;
     Node *newn = NULL;
@@ -318,7 +350,7 @@ void DataStructures :: SinglyLL<T> :: InsertLast(T no)
     {
         temp = first;
 
-        while(temp->next != NULL)
+        while (temp->next != NULL)
         {
             temp = temp->next;
         }
@@ -329,7 +361,6 @@ void DataStructures :: SinglyLL<T> :: InsertLast(T no)
     iCount++;
 }
 
-
 ////////////////////////////////////////////////////////////
 //
 //    Function name :  InsertAtPos
@@ -339,23 +370,23 @@ void DataStructures :: SinglyLL<T> :: InsertLast(T no)
 //
 ////////////////////////////////////////////////////////////
 template <class T>
-void DataStructures :: SinglyLL<T> :: InsertAtPos(T no, int iPos)
+void DataStructures ::SinglyLL<T>::InsertAtPos(T no, int iPos)
 {
     int i = 0;
     Node *newn = NULL;
     Node *temp = NULL;
 
-    if(iPos < 1 || (iPos > iCount + 1))
+    if (iPos < 1 || (iPos > iCount + 1))
     {
         printf("Invalid Position..!");
         return;
     }
 
-    if(iPos == 1)
+    if (iPos == 1)
     {
         InsertFirst(no);
     }
-    else if(iPos == (iCount + 1))
+    else if (iPos == (iCount + 1))
     {
         InsertLast(no);
     }
@@ -367,13 +398,13 @@ void DataStructures :: SinglyLL<T> :: InsertAtPos(T no, int iPos)
         newn->data = no;
         newn->next = NULL;
 
-        for(i = 1 ; i < (iPos - 1); i++)
+        for (i = 1; i < (iPos - 1); i++)
         {
             temp = temp->next;
         }
 
         newn->next = temp->next;
-        temp-> next = newn;
+        temp->next = newn;
 
         iCount++;
     }
@@ -387,15 +418,15 @@ void DataStructures :: SinglyLL<T> :: InsertAtPos(T no, int iPos)
 //
 ////////////////////////////////////////////////////////////
 template <class T>
-void DataStructures :: SinglyLL<T> :: DeleteFirst()
+void DataStructures ::SinglyLL<T>::DeleteFirst()
 {
     Node *temp = NULL;
 
-    if(first == NULL)
+    if (first == NULL)
     {
         return;
     }
-    else if(first->next == NULL)
+    else if (first->next == NULL)
     {
         delete first;
         first = NULL;
@@ -411,7 +442,6 @@ void DataStructures :: SinglyLL<T> :: DeleteFirst()
     iCount--;
 }
 
-
 ////////////////////////////////////////////////////////////
 //
 //    Function name :  DeleteLast
@@ -420,15 +450,15 @@ void DataStructures :: SinglyLL<T> :: DeleteFirst()
 //
 ////////////////////////////////////////////////////////////
 template <class T>
-void DataStructures :: SinglyLL<T> :: DeleteLast()
+void DataStructures ::SinglyLL<T>::DeleteLast()
 {
     Node *temp = NULL;
 
-    if(first == NULL)
+    if (first == NULL)
     {
         return;
     }
-    else if(first->next == NULL)
+    else if (first->next == NULL)
     {
         delete first;
         first = NULL;
@@ -437,7 +467,7 @@ void DataStructures :: SinglyLL<T> :: DeleteLast()
     {
         temp = first;
 
-        while(temp->next->next != NULL)
+        while (temp->next->next != NULL)
         {
             temp = temp->next;
         }
@@ -458,22 +488,22 @@ void DataStructures :: SinglyLL<T> :: DeleteLast()
 //
 ////////////////////////////////////////////////////////////
 template <class T>
-void DataStructures :: SinglyLL<T> :: DeleteAtPos(int iPos)
+void DataStructures ::SinglyLL<T>::DeleteAtPos(int iPos)
 {
     Node *temp = NULL;
     Node *target = NULL;
     int i = 0;
 
-    if(iPos < 1 || iPos > (iCount))
+    if (iPos < 1 || iPos > (iCount))
     {
         return;
     }
 
-    if(iPos == 1)
+    if (iPos == 1)
     {
         DeleteFirst();
     }
-    else if(iPos == iCount)
+    else if (iPos == iCount)
     {
         DeleteLast();
     }
@@ -481,7 +511,7 @@ void DataStructures :: SinglyLL<T> :: DeleteAtPos(int iPos)
     {
         temp = first;
 
-        for(i = 1 ; i < (iPos - 1); i++)
+        for (i = 1; i < (iPos - 1); i++)
         {
             temp = temp->next;
         }
@@ -492,7 +522,6 @@ void DataStructures :: SinglyLL<T> :: DeleteAtPos(int iPos)
 
         iCount--;
     }
-
 }
 
 ////////////////////////////////////////////////////////////
@@ -503,16 +532,16 @@ void DataStructures :: SinglyLL<T> :: DeleteAtPos(int iPos)
 //    Description   :  Search the given element in the linked list
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-bool DataStructures :: SinglyLL<T> :: Search(T key)
+template <class T>
+bool DataStructures ::SinglyLL<T>::Search(T key)
 {
     Node *temp = NULL;
 
     temp = first;
 
-    while(temp != NULL)
+    while (temp != NULL)
     {
-        if(temp->data == key)
+        if (temp->data == key)
         {
             return true;
         }
@@ -526,14 +555,12 @@ bool DataStructures :: SinglyLL<T> :: Search(T key)
 // ---------------------Singly Linear Linked list functions definions end-------------
 ///////////////////////////////////////////////////////////////////////////////////////
 
-
-
 ///////////////////////////////////////////////////////////////////////////////////////
 // ---------------------Doubly Linear Linked list functions definions start-------------
 ///////////////////////////////////////////////////////////////////////////////////////
 
 template <class T>
-DataStructures :: DoublyLL<T> :: DoublyLL()
+DataStructures ::DoublyLL<T>::DoublyLL()
 {
     first = NULL;
     iCount = 0;
@@ -546,13 +573,13 @@ DataStructures :: DoublyLL<T> :: DoublyLL()
 //    Description   :  Display the Nodes of Linked List
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-void DataStructures :: DoublyLL<T> :: Display()
+template <class T>
+void DataStructures ::DoublyLL<T>::Display()
 {
     Node *temp = first;
 
-    cout << "NULL <=> " ;
-    while(temp != NULL)
+    cout << "NULL <=> ";
+    while (temp != NULL)
     {
         cout << "| " << temp->data << " | <=> ";
         temp = temp->next;
@@ -568,11 +595,10 @@ void DataStructures :: DoublyLL<T> :: Display()
 //
 ////////////////////////////////////////////////////////////
 template <class T>
-int DataStructures :: DoublyLL<T> :: Count()
+int DataStructures ::DoublyLL<T>::Count()
 {
     return this->iCount;
 }
-
 
 ////////////////////////////////////////////////////////////
 //
@@ -582,8 +608,8 @@ int DataStructures :: DoublyLL<T> :: Count()
 //    Description   :  Insert the element at first position
 //
 ////////////////////////////////////////////////////////////
-template <class T> 
-void DataStructures :: DoublyLL<T> :: InsertFirst(T no)
+template <class T>
+void DataStructures ::DoublyLL<T>::InsertFirst(T no)
 {
     Node *newn = NULL;
 
@@ -592,7 +618,7 @@ void DataStructures :: DoublyLL<T> :: InsertFirst(T no)
     newn->next = NULL;
     newn->prev = NULL;
 
-    if(first == NULL)
+    if (first == NULL)
     {
         first = newn;
     }
@@ -605,7 +631,6 @@ void DataStructures :: DoublyLL<T> :: InsertFirst(T no)
     iCount++;
 }
 
-
 ////////////////////////////////////////////////////////////
 //
 //    Function name :  InsertLast
@@ -615,7 +640,7 @@ void DataStructures :: DoublyLL<T> :: InsertFirst(T no)
 //
 ////////////////////////////////////////////////////////////
 template <class T>
-void DataStructures :: DoublyLL<T> :: InsertLast(T no)
+void DataStructures ::DoublyLL<T>::InsertLast(T no)
 {
     Node *newn = NULL;
     Node *temp = NULL;
@@ -625,7 +650,7 @@ void DataStructures :: DoublyLL<T> :: InsertLast(T no)
     newn->next = NULL;
     newn->prev = NULL;
 
-    if(first == NULL)
+    if (first == NULL)
     {
         first = newn;
     }
@@ -633,7 +658,7 @@ void DataStructures :: DoublyLL<T> :: InsertLast(T no)
     {
         temp = first;
 
-        while(temp->next != NULL)
+        while (temp->next != NULL)
         {
             temp = temp->next;
         }
@@ -644,7 +669,6 @@ void DataStructures :: DoublyLL<T> :: InsertLast(T no)
     iCount++;
 }
 
-
 ////////////////////////////////////////////////////////////
 //
 //    Function name :  InsertAtPosition
@@ -654,23 +678,23 @@ void DataStructures :: DoublyLL<T> :: InsertLast(T no)
 //
 ////////////////////////////////////////////////////////////
 template <class T>
-void DataStructures :: DoublyLL<T> :: InsertAtPos(T no, int iPos)
+void DataStructures ::DoublyLL<T>::InsertAtPos(T no, int iPos)
 {
     int i = 0;
     Node *newn = NULL;
     Node *temp = NULL;
 
-    if((iPos < 1) || (iPos >= iCount + 1))
+    if ((iPos < 1) || (iPos >= iCount + 1))
     {
         cout << "Invalid Position";
         return;
     }
 
-    if(iPos == 1)
+    if (iPos == 1)
     {
         InsertFirst(no);
     }
-    else if(iPos == iCount+1)
+    else if (iPos == iCount + 1)
     {
         InsertLast(no);
     }
@@ -683,7 +707,7 @@ void DataStructures :: DoublyLL<T> :: InsertAtPos(T no, int iPos)
         newn->next = NULL;
         newn->prev = NULL;
 
-        for(i = 1; i < (iPos-1); i++)
+        for (i = 1; i < (iPos - 1); i++)
         {
             temp = temp->next;
         }
@@ -705,14 +729,14 @@ void DataStructures :: DoublyLL<T> :: InsertAtPos(T no, int iPos)
 //
 ////////////////////////////////////////////////////////////
 template <class T>
-void DataStructures :: DoublyLL<T> :: DeleteFirst()
+void DataStructures ::DoublyLL<T>::DeleteFirst()
 {
 
-    if(first == NULL)
+    if (first == NULL)
     {
         return;
     }
-    else if(first->next == NULL)
+    else if (first->next == NULL)
     {
         delete first;
         first = NULL;
@@ -726,7 +750,6 @@ void DataStructures :: DoublyLL<T> :: DeleteFirst()
     iCount--;
 }
 
-
 ////////////////////////////////////////////////////////////
 //
 //    Function name :  DeleteLast
@@ -735,15 +758,15 @@ void DataStructures :: DoublyLL<T> :: DeleteFirst()
 //
 ////////////////////////////////////////////////////////////
 template <class T>
-void DataStructures :: DoublyLL<T> :: DeleteLast()
+void DataStructures ::DoublyLL<T>::DeleteLast()
 {
     Node *temp = NULL;
 
-    if(first == NULL)
+    if (first == NULL)
     {
         return;
     }
-    else if(first->next == NULL)
+    else if (first->next == NULL)
     {
         delete first;
         first = NULL;
@@ -752,7 +775,7 @@ void DataStructures :: DoublyLL<T> :: DeleteLast()
     {
         temp = first;
 
-        while(temp->next->next != NULL)
+        while (temp->next->next != NULL)
         {
             temp = temp->next;
         }
@@ -763,7 +786,6 @@ void DataStructures :: DoublyLL<T> :: DeleteLast()
     iCount--;
 }
 
-
 ////////////////////////////////////////////////////////////
 //
 //    Function name :  DeleteAtPos
@@ -773,21 +795,21 @@ void DataStructures :: DoublyLL<T> :: DeleteLast()
 //
 ////////////////////////////////////////////////////////////
 template <class T>
-void DataStructures :: DoublyLL<T> :: DeleteAtPos(int iPos)
+void DataStructures ::DoublyLL<T>::DeleteAtPos(int iPos)
 {
     int i = 0;
     Node *temp = NULL;
 
-    if((iPos < 1) || (iPos > iCount))
+    if ((iPos < 1) || (iPos > iCount))
     {
         return;
     }
 
-    if(iPos == 1)
+    if (iPos == 1)
     {
         DeleteFirst();
     }
-    else if(iPos == iCount)
+    else if (iPos == iCount)
     {
         DeleteLast();
     }
@@ -795,7 +817,7 @@ void DataStructures :: DoublyLL<T> :: DeleteAtPos(int iPos)
     {
         temp = first;
 
-        for(i = 1; i < (iPos - 1); i++)
+        for (i = 1; i < (iPos - 1); i++)
         {
             temp = temp->next;
         }
@@ -817,13 +839,13 @@ void DataStructures :: DoublyLL<T> :: DeleteAtPos(int iPos)
 //
 ////////////////////////////////////////////////////////////
 template <class T>
-bool DataStructures :: DoublyLL<T> :: Search(T key)
+bool DataStructures ::DoublyLL<T>::Search(T key)
 {
     Node *temp = first;
 
-    while(temp != NULL)
+    while (temp != NULL)
     {
-        if(temp->data == key)
+        if (temp->data == key)
         {
             return true;
         }
@@ -838,20 +860,17 @@ bool DataStructures :: DoublyLL<T> :: Search(T key)
 // --------------------- Doubly Linear Linked list functions definions end -------------
 ///////////////////////////////////////////////////////////////////////////////////////
 
-
-
 ///////////////////////////////////////////////////////////////////////////////////////
 // --------------------- Singly Circular Linked list functions definions start --------
 ///////////////////////////////////////////////////////////////////////////////////////
 
-template<class T>
-DataStructures :: SinglyCL<T> :: SinglyCL()
+template <class T>
+DataStructures ::SinglyCL<T>::SinglyCL()
 {
     first = NULL;
     last = NULL;
     iCount = 0;
 }
-
 
 ////////////////////////////////////////////////////////////
 //
@@ -860,10 +879,10 @@ DataStructures :: SinglyCL<T> :: SinglyCL()
 //    Description   :  Dislay all the elements from the linked list
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-void DataStructures :: SinglyCL<T> :: Display()
+template <class T>
+void DataStructures ::SinglyCL<T>::Display()
 {
-    if(first == NULL && last == NULL)
+    if (first == NULL && last == NULL)
     {
         return;
     }
@@ -886,8 +905,8 @@ void DataStructures :: SinglyCL<T> :: Display()
 //    Description   :  Count the number of nodes from the linked list
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-int DataStructures :: SinglyCL<T> :: Count()
+template <class T>
+int DataStructures ::SinglyCL<T>::Count()
 {
     return iCount;
 }
@@ -897,11 +916,11 @@ int DataStructures :: SinglyCL<T> :: Count()
 //    Function name :  InsertFirst
 //    Input         :  T
 //    Output        :  void
-//    Description   :  Insert element at the first position 
+//    Description   :  Insert element at the first position
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-void DataStructures :: SinglyCL<T> ::  InsertFirst(T no)
+template <class T>
+void DataStructures ::SinglyCL<T>::InsertFirst(T no)
 {
     Node *newn = NULL;
 
@@ -909,7 +928,7 @@ void DataStructures :: SinglyCL<T> ::  InsertFirst(T no)
     newn->data = no;
     newn->next = NULL;
 
-    if(first == NULL && last == NULL)
+    if (first == NULL && last == NULL)
     {
         first = newn;
         last = newn;
@@ -917,7 +936,7 @@ void DataStructures :: SinglyCL<T> ::  InsertFirst(T no)
     else
     {
         newn->next = first;
-        first = newn;  
+        first = newn;
     }
 
     last->next = first;
@@ -929,11 +948,11 @@ void DataStructures :: SinglyCL<T> ::  InsertFirst(T no)
 //    Function name :  InsertLast
 //    Input         :  T
 //    Output        :  void
-//    Description   :  Insert element at the last position 
+//    Description   :  Insert element at the last position
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-void DataStructures :: SinglyCL<T> :: InsertLast(T no)
+template <class T>
+void DataStructures ::SinglyCL<T>::InsertLast(T no)
 {
     Node *newn = NULL;
 
@@ -941,19 +960,19 @@ void DataStructures :: SinglyCL<T> :: InsertLast(T no)
     newn->data = no;
     newn->next = NULL;
 
-    if(first == NULL && last == NULL)
+    if (first == NULL && last == NULL)
     {
         first = newn;
         last = newn;
     }
-    else 
+    else
     {
         last->next = newn;
         last = newn;
     }
 
     last->next = first;
-    iCount++;   
+    iCount++;
 }
 
 ////////////////////////////////////////////////////////////
@@ -961,27 +980,27 @@ void DataStructures :: SinglyCL<T> :: InsertLast(T no)
 //    Function name :  InsertAtPos
 //    Input         :  T, int
 //    Output        :  void
-//    Description   :  Insert element at the given position 
+//    Description   :  Insert element at the given position
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-void DataStructures :: SinglyCL<T> :: InsertAtPos(T no, int iPos)
+template <class T>
+void DataStructures ::SinglyCL<T>::InsertAtPos(T no, int iPos)
 {
     int i = 0;
     Node *newn = NULL;
     Node *temp = NULL;
 
-    if(iPos < 1 || (iPos > iCount+1))
+    if (iPos < 1 || (iPos > iCount + 1))
     {
         cout << "Invalid Position";
         return;
     }
 
-    if(iPos == 1)
+    if (iPos == 1)
     {
         InsertFirst(no);
     }
-    else if(iPos == iCount+1)
+    else if (iPos == iCount + 1)
     {
         InsertLast(no);
     }
@@ -993,7 +1012,7 @@ void DataStructures :: SinglyCL<T> :: InsertAtPos(T no, int iPos)
         newn->data = no;
         newn->next = NULL;
 
-        for(i = 1; i < iPos-1; i++)
+        for (i = 1; i < iPos - 1; i++)
         {
             temp = temp->next;
         }
@@ -1006,8 +1025,6 @@ void DataStructures :: SinglyCL<T> :: InsertAtPos(T no, int iPos)
     }
 }
 
-
-
 ////////////////////////////////////////////////////////////
 //
 //    Function name :  DeleteFirst
@@ -1015,14 +1032,14 @@ void DataStructures :: SinglyCL<T> :: InsertAtPos(T no, int iPos)
 //    Description   :  Delete element from first Position
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-void DataStructures :: SinglyCL<T> :: DeleteFirst()
+template <class T>
+void DataStructures ::SinglyCL<T>::DeleteFirst()
 {
-    if(first == NULL && last == NULL)
+    if (first == NULL && last == NULL)
     {
         return;
     }
-    else if(first == last)
+    else if (first == last)
     {
         delete first;
         first = NULL;
@@ -1037,8 +1054,6 @@ void DataStructures :: SinglyCL<T> :: DeleteFirst()
     iCount--;
 }
 
-
-
 ////////////////////////////////////////////////////////////
 //
 //    Function name :  DeleteLast
@@ -1046,16 +1061,16 @@ void DataStructures :: SinglyCL<T> :: DeleteFirst()
 //    Description   :  Delete element from last Position
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-void DataStructures :: SinglyCL<T> :: DeleteLast()
+template <class T>
+void DataStructures ::SinglyCL<T>::DeleteLast()
 {
     Node *temp = NULL;
 
-    if(first == NULL && last == NULL)
+    if (first == NULL && last == NULL)
     {
         return;
     }
-    else if(first == last)
+    else if (first == last)
     {
         delete first;
         first = NULL;
@@ -1078,7 +1093,6 @@ void DataStructures :: SinglyCL<T> :: DeleteLast()
     iCount--;
 }
 
-
 ////////////////////////////////////////////////////////////
 //
 //    Function name :  DeleteAtPos
@@ -1088,19 +1102,19 @@ void DataStructures :: SinglyCL<T> :: DeleteLast()
 //
 ////////////////////////////////////////////////////////////
 template <class T>
-void DataStructures :: SinglyCL<T> :: DeleteAtPos(int iPos)
+void DataStructures ::SinglyCL<T>::DeleteAtPos(int iPos)
 {
-    if(iPos < 1 || iPos > iCount)
+    if (iPos < 1 || iPos > iCount)
     {
         cout << "Invalid Position";
         return;
     }
 
-    if(iPos == 1)
+    if (iPos == 1)
     {
         DeleteFirst();
     }
-    else if(iPos == iCount)
+    else if (iPos == iCount)
     {
         DeleteLast();
     }
@@ -1108,7 +1122,7 @@ void DataStructures :: SinglyCL<T> :: DeleteAtPos(int iPos)
     {
         Node *temp = first;
 
-        for(int i = 1; i < (iPos - 1); i++)
+        for (int i = 1; i < (iPos - 1); i++)
         {
             temp = temp->next;
         }
@@ -1124,7 +1138,6 @@ void DataStructures :: SinglyCL<T> :: DeleteAtPos(int iPos)
     }
 }
 
-
 ////////////////////////////////////////////////////////////
 //
 //    Function name :  Search
@@ -1134,11 +1147,11 @@ void DataStructures :: SinglyCL<T> :: DeleteAtPos(int iPos)
 //
 ////////////////////////////////////////////////////////////
 template <class T>
-bool DataStructures :: SinglyCL<T> :: Search(T key)
+bool DataStructures ::SinglyCL<T>::Search(T key)
 {
     Node *temp = first;
 
-    if(first == NULL || last == NULL)
+    if (first == NULL || last == NULL)
     {
         cout << "Nothing to search";
         return false;
@@ -1146,37 +1159,32 @@ bool DataStructures :: SinglyCL<T> :: Search(T key)
 
     do
     {
-        if(temp->data == key)
+        if (temp->data == key)
         {
             return true;
         }
 
         temp = temp->next;
-    }while(temp != first);
-    
+    } while (temp != first);
 
     return false;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////////
 // --------------------- Singly Circular Linked list functions definions end --------
 ///////////////////////////////////////////////////////////////////////////////////////
-
-
 
 ///////////////////////////////////////////////////////////////////////////////////////
 // --------------------- Doubly Circular Linked list functions definions start --------
 ///////////////////////////////////////////////////////////////////////////////////////
 
 template <class T>
-DataStructures :: DoublyCL<T> :: DoublyCL()
+DataStructures ::DoublyCL<T>::DoublyCL()
 {
     first = NULL;
     last = NULL;
     iCount = 0;
 }
-
 
 ////////////////////////////////////////////////////////////
 //
@@ -1186,23 +1194,23 @@ DataStructures :: DoublyCL<T> :: DoublyCL()
 //
 ////////////////////////////////////////////////////////////
 template <class T>
-void DataStructures :: DoublyCL<T> :: Display()
+void DataStructures ::DoublyCL<T>::Display()
 {
-    if(first == NULL || last == NULL)
+    if (first == NULL || last == NULL)
     {
         return;
     }
 
     Node *temp = first;
-    
+
     cout << "(last) <=> ";
 
     do
     {
-        cout << "| " << temp->data << " | <=> " ;    
+        cout << "| " << temp->data << " | <=> ";
         temp = temp->next;
     } while (temp != first);
-    
+
     cout << " (first) " << endl;
 }
 
@@ -1214,7 +1222,7 @@ void DataStructures :: DoublyCL<T> :: Display()
 //
 ////////////////////////////////////////////////////////////
 template <class T>
-int DataStructures :: DoublyCL<T> :: Count()
+int DataStructures ::DoublyCL<T>::Count()
 {
     return iCount;
 }
@@ -1224,11 +1232,11 @@ int DataStructures :: DoublyCL<T> :: Count()
 //    Function name :  InsertFirst
 //    Input         :  T
 //    Output        :  void
-//    Description   :  Insert element at the first position 
+//    Description   :  Insert element at the first position
 //
 ////////////////////////////////////////////////////////////
 template <class T>
-void DataStructures :: DoublyCL<T> :: InsertFirst(T no)
+void DataStructures ::DoublyCL<T>::InsertFirst(T no)
 {
     Node *newn = NULL;
 
@@ -1237,7 +1245,7 @@ void DataStructures :: DoublyCL<T> :: InsertFirst(T no)
     newn->next = NULL;
     newn->prev = NULL;
 
-    if(first == NULL && last == NULL)
+    if (first == NULL && last == NULL)
     {
         first = newn;
         last = newn;
@@ -1260,11 +1268,11 @@ void DataStructures :: DoublyCL<T> :: InsertFirst(T no)
 //    Function name :  InsertLast
 //    Input         :  T
 //    Output        :  void
-//    Description   :  Insert element at the last position 
+//    Description   :  Insert element at the last position
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-void DataStructures :: DoublyCL<T> :: InsertLast(T no)
+template <class T>
+void DataStructures ::DoublyCL<T>::InsertLast(T no)
 {
     Node *newn = NULL;
     Node *temp = NULL;
@@ -1274,7 +1282,7 @@ void DataStructures :: DoublyCL<T> :: InsertLast(T no)
     newn->next = NULL;
     newn->prev = NULL;
 
-    if(first == NULL && last == NULL)
+    if (first == NULL && last == NULL)
     {
         first = newn;
         last = newn;
@@ -1298,28 +1306,28 @@ void DataStructures :: DoublyCL<T> :: InsertLast(T no)
 //    Function name :  InsertAtPos
 //    Input         :  T, int
 //    Output        :  void
-//    Description   :  Insert element at the given position 
+//    Description   :  Insert element at the given position
 //
 ////////////////////////////////////////////////////////////
 template <class T>
-void DataStructures :: DoublyCL<T> :: InsertAtPos(T no, int iPos)
+void DataStructures ::DoublyCL<T>::InsertAtPos(T no, int iPos)
 {
     int i = 0;
-    
+
     Node *newn = NULL;
     Node *temp = NULL;
 
-    if(iPos < 1 || iPos > iCount+1)
+    if (iPos < 1 || iPos > iCount + 1)
     {
         cout << "Invalid position" << endl;
         return;
     }
 
-    if(iPos == 1)
+    if (iPos == 1)
     {
         InsertFirst(no);
     }
-    else if(iPos == iCount+1)
+    else if (iPos == iCount + 1)
     {
         InsertLast(no);
     }
@@ -1332,13 +1340,13 @@ void DataStructures :: DoublyCL<T> :: InsertAtPos(T no, int iPos)
         newn->next = NULL;
         newn->prev = NULL;
 
-        for(i = 1; i < iPos - 1; i++)
+        for (i = 1; i < iPos - 1; i++)
         {
             temp = temp->next;
         }
 
         newn->next = temp->next;
-        temp->next->prev= newn;
+        temp->next->prev = newn;
         newn->prev = temp;
         temp->next = newn;
 
@@ -1349,7 +1357,6 @@ void DataStructures :: DoublyCL<T> :: InsertAtPos(T no, int iPos)
     }
 }
 
-
 ////////////////////////////////////////////////////////////
 //
 //    Function name :  DeleteFirst
@@ -1357,15 +1364,15 @@ void DataStructures :: DoublyCL<T> :: InsertAtPos(T no, int iPos)
 //    Description   :  Delete element from first Position
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-void DataStructures :: DoublyCL<T> :: DeleteFirst()
+template <class T>
+void DataStructures ::DoublyCL<T>::DeleteFirst()
 {
-    if(first == NULL || last == NULL)
+    if (first == NULL || last == NULL)
     {
         return;
     }
 
-    if(first == last)
+    if (first == last)
     {
         delete first;
     }
@@ -1389,15 +1396,15 @@ void DataStructures :: DoublyCL<T> :: DeleteFirst()
 //    Description   :  Delete element from last Position
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-void DataStructures :: DoublyCL<T> :: DeleteLast()
+template <class T>
+void DataStructures ::DoublyCL<T>::DeleteLast()
 {
-    if(first == NULL || last == NULL)
+    if (first == NULL || last == NULL)
     {
         return;
     }
 
-    if(first == last)
+    if (first == last)
     {
         delete first;
     }
@@ -1420,23 +1427,23 @@ void DataStructures :: DoublyCL<T> :: DeleteLast()
 //    Description   :  Delete element from last Position
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-void DataStructures :: DoublyCL<T> :: DeleteAtPos(int iPos)
+template <class T>
+void DataStructures ::DoublyCL<T>::DeleteAtPos(int iPos)
 {
     int i = 0;
     Node *temp = NULL;
 
-    if(iPos < 1 || iPos > iCount)
+    if (iPos < 1 || iPos > iCount)
     {
         cout << "Invalid Position" << endl;
         return;
     }
 
-    if(iPos == 1)
+    if (iPos == 1)
     {
         DeleteFirst();
     }
-    else if(iPos == iCount)
+    else if (iPos == iCount)
     {
         DeleteLast();
     }
@@ -1444,7 +1451,7 @@ void DataStructures :: DoublyCL<T> :: DeleteAtPos(int iPos)
     {
         temp = first;
 
-        for(i = 1; i < iPos -1; i++)
+        for (i = 1; i < iPos - 1; i++)
         {
             temp = temp->next;
         }
@@ -1458,9 +1465,7 @@ void DataStructures :: DoublyCL<T> :: DeleteAtPos(int iPos)
 
         iCount--;
     }
-
 }
-
 
 ////////////////////////////////////////////////////////////
 //
@@ -1471,11 +1476,11 @@ void DataStructures :: DoublyCL<T> :: DeleteAtPos(int iPos)
 //
 ////////////////////////////////////////////////////////////
 template <class T>
-bool DataStructures :: DoublyCL<T> :: Search(T key)
+bool DataStructures ::DoublyCL<T>::Search(T key)
 {
     Node *temp = first;
 
-    if(first == NULL || last == NULL)
+    if (first == NULL || last == NULL)
     {
         cout << "Nothing to search";
         return false;
@@ -1483,14 +1488,13 @@ bool DataStructures :: DoublyCL<T> :: Search(T key)
 
     do
     {
-        if(temp->data == key)
+        if (temp->data == key)
         {
             return true;
         }
 
         temp = temp->next;
-    }while(temp != first);
-    
+    } while (temp != first);
 
     return false;
 }
@@ -1499,17 +1503,12 @@ bool DataStructures :: DoublyCL<T> :: Search(T key)
 // --------------------- Doubly Circular Linked list functions definions end --------
 ///////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
 ///////////////////////////////////////////////////////////////////////////////////////
 // --------------------- STACK functions definions start --------
 ///////////////////////////////////////////////////////////////////////////////////////
 
-
-
 template <class T>
-DataStructures :: Stack<T> :: Stack()
+DataStructures ::Stack<T>::Stack()
 {
     top = NULL;
     iCount = 0;
@@ -1522,12 +1521,12 @@ DataStructures :: Stack<T> :: Stack()
 //    Description   :  Dislay all the elements from the Stack
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-void DataStructures :: Stack<T> :: Display()
+template <class T>
+void DataStructures ::Stack<T>::Display()
 {
     Node *temp = top;
 
-    while(temp != NULL)
+    while (temp != NULL)
     {
         cout << " | " << temp->data << " | " << endl;
         temp = temp->next;
@@ -1541,23 +1540,22 @@ void DataStructures :: Stack<T> :: Display()
 //    Description   :  Count the number of nodes from the stack
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-int DataStructures :: Stack<T> :: Count()
+template <class T>
+int DataStructures ::Stack<T>::Count()
 {
     return iCount;
 }
-
 
 ////////////////////////////////////////////////////////////
 //
 //    Function name :  Push
 //    Input         :  T
 //    Output        :  void
-//    Description   :  Insert element at the top position 
+//    Description   :  Insert element at the top position
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-void DataStructures :: Stack<T> :: Push(T no)
+template <class T>
+void DataStructures ::Stack<T>::Push(T no)
 {
     Node *newn = NULL;
 
@@ -1566,7 +1564,7 @@ void DataStructures :: Stack<T> :: Push(T no)
     newn->data = no;
     newn->next = NULL;
 
-    if(top == NULL)
+    if (top == NULL)
     {
         top = newn;
     }
@@ -1583,16 +1581,16 @@ void DataStructures :: Stack<T> :: Push(T no)
 //
 //    Function name :  Pop
 //    Output        :  int
-//    Description   :  Delete element from the top position 
+//    Description   :  Delete element from the top position
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-T DataStructures :: Stack<T> :: Pop()
+template <class T>
+T DataStructures ::Stack<T>::Pop()
 {
     Node *temp = NULL;
     T iValue;
 
-    if(top == NULL)
+    if (top == NULL)
     {
         cout << "Stack is empty";
         return -1;
@@ -1614,22 +1612,21 @@ T DataStructures :: Stack<T> :: Pop()
 //
 //    Function name :  Pop
 //    Output        :  T
-//    Description   :  Return the top element  
+//    Description   :  Return the top element
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-T DataStructures :: Stack<T> :: Peek()
+template <class T>
+T DataStructures ::Stack<T>::Peek()
 {
     return top->data;
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////////
 // --------------------- QUEUE functions definions start ----------------------------
 ///////////////////////////////////////////////////////////////////////////////////////
 
 template <class T>
-DataStructures :: Queue<T> :: Queue()
+DataStructures ::Queue<T>::Queue()
 {
     front = NULL;
     iCount = 0;
@@ -1642,12 +1639,12 @@ DataStructures :: Queue<T> :: Queue()
 //    Description   :  Dislay all the elements from the Queue
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-void DataStructures :: Queue<T> :: Display()
+template <class T>
+void DataStructures ::Queue<T>::Display()
 {
     Node *temp = front;
 
-    while(temp != NULL)
+    while (temp != NULL)
     {
         cout << " | " << temp->data << " | " << endl;
         temp = temp->next;
@@ -1661,23 +1658,22 @@ void DataStructures :: Queue<T> :: Display()
 //    Description   :  Count the number of nodes from the Queue
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-int DataStructures :: Queue<T> :: Count()
+template <class T>
+int DataStructures ::Queue<T>::Count()
 {
     return iCount;
 }
-
 
 ////////////////////////////////////////////////////////////
 //
 //    Function name :  Enqueue
 //    Input         :  T
 //    Output        :  void
-//    Description   :  Insert element at the front position 
+//    Description   :  Insert element at the front position
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-void DataStructures :: Queue<T> :: Enqueue(T no)
+template <class T>
+void DataStructures ::Queue<T>::Enqueue(T no)
 {
     Node *newn = NULL;
 
@@ -1686,7 +1682,7 @@ void DataStructures :: Queue<T> :: Enqueue(T no)
     newn->data = no;
     newn->next = NULL;
 
-    if(front == NULL)
+    if (front == NULL)
     {
         front = newn;
     }
@@ -1703,16 +1699,16 @@ void DataStructures :: Queue<T> :: Enqueue(T no)
 //
 //    Function name :  Deque
 //    Output        :  int
-//    Description   :  Delete element from the last position 
+//    Description   :  Delete element from the last position
 //
 ////////////////////////////////////////////////////////////
-template<class T>
-T DataStructures :: Queue<T> :: Deque()
+template <class T>
+T DataStructures ::Queue<T>::Deque()
 {
     Node *temp = NULL;
     T iValue;
 
-    if(front == NULL)
+    if (front == NULL)
     {
         cout << "Queue is empty";
         return -1;
@@ -1720,7 +1716,7 @@ T DataStructures :: Queue<T> :: Deque()
 
     temp = front;
 
-    while(temp->next->next)
+    while (temp->next->next)
     {
         temp = temp->next;
     }
@@ -1735,9 +1731,244 @@ T DataStructures :: Queue<T> :: Deque()
     return iValue;
 }
 
-
-
-
 ///////////////////////////////////////////////////////////////////////////////////////
 // --------------------- QUEUE functions definions end -----------------------------
 ///////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////
+// --------------------- BST functions definions start -----------------------------
+///////////////////////////////////////////////////////////////////////////////////////
+
+template <class T>
+DataStructures ::BST<T>::BST()
+{
+    root = NULL;
+    iCount = 0;
+}
+
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Inorder
+//    Output        :  void
+//    Description   :  calls to Inorder helper function
+//
+////////////////////////////////////////////////////////////
+template <class T>
+void DataStructures :: BST<T> :: Inorder()
+{
+    Inorder(root);
+
+    cout << endl;
+}
+
+
+///////////////////////////////////////////////////////////
+//
+//    Function name :  Inorder
+//    Input         :  root
+//    Output        :  void
+//    Description   :  print the elements in the Inorder traversal
+//
+////////////////////////////////////////////////////////////
+template <class T>
+void DataStructures :: BST<T> :: Inorder(Node *temp)
+{
+    if(temp == NULL)
+    {
+        return;
+    }
+
+    Inorder(temp->lChild);      //L
+    cout << temp->data << " ";  //D
+    Inorder(temp->rChild);      //R
+}
+
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Preorder
+//    Output        :  void
+//    Description   :  calls to Preorder helper function
+//
+////////////////////////////////////////////////////////////
+template <class T>
+void DataStructures :: BST<T> :: Preorder()
+{
+    Preorder(root);
+
+    cout << endl;
+}
+
+
+///////////////////////////////////////////////////////////
+//
+//    Function name :  Preorder
+//    Input         :  root
+//    Output        :  void
+//    Description   :  print the elements in the preorder traversal
+//
+////////////////////////////////////////////////////////////
+template <class T>
+void DataStructures :: BST<T> :: Preorder(Node *temp)
+{
+    if(temp == NULL)
+    {
+        return;
+    }
+
+    cout << temp->data << " ";   //D
+    Preorder(temp->lChild);      //L
+    Preorder(temp->rChild);      //R
+}
+
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Postorder
+//    Output        :  void
+//    Description   :  calls to Postorder helper function
+//
+////////////////////////////////////////////////////////////
+template <class T>
+void DataStructures :: BST<T> :: Postorder()
+{
+    Postorder(root);
+
+    cout << endl;
+}
+
+
+///////////////////////////////////////////////////////////
+//
+//    Function name :  Postorder
+//    Input         :  root
+//    Output        :  void
+//    Description   :  print the elements in the Postorder traversal
+//
+////////////////////////////////////////////////////////////
+template <class T>
+void DataStructures :: BST<T> :: Postorder(Node *temp)
+{
+    if(temp == NULL)
+    {
+        return;
+    }
+
+    Postorder(temp->lChild);      //L
+    Postorder(temp->rChild);      //R
+    cout << temp->data << " ";   //D
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Count
+//    Output        :  int
+//    Description   :  Count number of nodes
+//
+////////////////////////////////////////////////////////////
+template <class T>
+int DataStructures :: BST<T> :: Count()
+{
+    return iCount;
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Insert
+//    Input         :  T
+//    Output        :  void
+//    Description   :  Insert Element in the BST
+//
+////////////////////////////////////////////////////////////
+template <class T>
+void DataStructures ::BST<T>::Insert(T no)
+{
+    Node *newn = NULL;
+    Node *temp = NULL;
+
+    newn = new Node;
+    newn->data = no;
+    newn->lChild = NULL;
+    newn->rChild = NULL;
+
+    if (root == NULL)
+    {
+        root = newn;
+        iCount++;
+    }
+    else
+    {
+        temp = root;
+
+        while (1)
+        {
+            if (no < temp->data)
+            {
+                if (temp->lChild == NULL)
+                {
+                    temp->lChild = newn;
+                    iCount++;
+                    break;
+                }
+                temp = temp->lChild;
+            }
+            else if (no > temp->data)
+            {
+                if (temp->rChild == NULL)
+                {
+                    temp->rChild = newn;
+                    iCount++;
+                    break;
+                }
+                temp = temp->rChild;
+            }
+            else if (no == temp->data)
+            {
+                cout << "Unable to insert as element is duplicate..!";
+                delete newn;
+                break;
+            }
+        }
+    }
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Search
+//    Input         :  T
+//    Output        :  bool
+//    Description   :  Search a element in the BST
+//
+////////////////////////////////////////////////////////////
+template<class T>
+bool DataStructures :: BST<T> :: Search(T key)
+{
+    Node *temp = NULL;
+
+    temp = root;
+
+    while(temp != NULL)
+    {
+        if(temp->data == key)
+        {
+            return true;
+        }
+        else if(key < temp->data)
+        {
+            temp = temp->lChild;
+        }
+        else
+        {
+            temp = temp->rChild;
+        }
+    }
+    return false;
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+// --------------------- BST functions definions end -----------------------------
+///////////////////////////////////////////////////////////////////////////////////////
+
