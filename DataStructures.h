@@ -251,6 +251,27 @@ namespace DataStructures
 
         bool Search(T);
     };
+
+    ////////////////////////////////////////
+    //
+    //  Searching
+    //
+    ///////////////////////////////////////
+    template <class T>
+    class Searching
+    {
+        private:
+            T *Arr;
+            int iSize;
+
+        public:
+            Searching(int);
+
+            void Accept();
+            void Display();
+
+            int LinearSearch(T);
+    };
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -1967,8 +1988,83 @@ bool DataStructures :: BST<T> :: Search(T key)
 }
 
 
-
 ///////////////////////////////////////////////////////////////////////////////////////
 // --------------------- BST functions definions end -----------------------------
+///////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////
+// ---------------- Searching Algorithms functions definions Start --------------
+///////////////////////////////////////////////////////////////////////////////////////
+
+template<class T>
+DataStructures :: Searching<T> :: Searching(int iSize)
+{
+    this->iSize = iSize;
+    Arr = new T[iSize];
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Accept
+//    Output        :  void
+//    Description   :  Accept elements and store into the Array
+//
+////////////////////////////////////////////////////////////
+template<class T>
+void DataStructures :: Searching<T> :: Accept()
+{
+    cout << "Enter " << iSize << " elements :" << endl;
+
+    for(int i = 0; i < iSize; i++)
+    {
+        cin >> Arr[i];
+    }
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  Display
+//    Output        :  void
+//    Description   :  Display the elements from the Array.
+//
+////////////////////////////////////////////////////////////
+template<class T>
+void DataStructures :: Searching<T> :: Display()
+{
+    cout << "Array Elements are : " << endl;
+    
+    for(int i = 0; i < iSize; i++)
+    {
+        cout << Arr[i] << "\t";
+    }
+
+    cout << endl;
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  LinearSearch
+//    Input         :  T
+//    Output        :  int
+//    Description   :  Search the element, if found return index 
+//                     otherwise return -1
+//
+////////////////////////////////////////////////////////////
+template<class T>
+int DataStructures :: Searching<T> :: LinearSearch(T key)
+{
+    for(int i = 0; i < iSize; i++)
+    {
+        if(Arr[i] == key)
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////
+// ---------------- Searching Algorithms functions definions end --------------
 ///////////////////////////////////////////////////////////////////////////////////////
 

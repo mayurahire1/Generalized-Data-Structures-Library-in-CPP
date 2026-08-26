@@ -250,30 +250,53 @@ int main()
 
     // ----------------------- BST -----------------------
 
-    BST<int> bst;
+    // BST<int> bst;
 
-    bst.Insert(25);
-    bst.Insert(11);
-    bst.Insert(21);
+    // bst.Insert(25);
+    // bst.Insert(11);
+    // bst.Insert(21);
 
-    cout << "Inorder Traversal : ";
-    bst.Inorder();
+    // cout << "Inorder Traversal : ";
+    // bst.Inorder();
 
-    cout << "Preorder Traversal : ";
-    bst.Preorder();
+    // cout << "Preorder Traversal : ";
+    // bst.Preorder();
 
-    cout << "Postorder Traversal : ";
-    bst.Postorder();
+    // cout << "Postorder Traversal : ";
+    // bst.Postorder();
 
-    cout << "Number of nodes are : " << bst.Count() << endl;
+    // cout << "Number of nodes are : " << bst.Count() << endl;
 
-    if(bst.Search(101))
+    // if(bst.Search(101))
+    // {
+    //     cout << "Element is present in the list" << endl;
+    // }
+    // else
+    // {
+    //     cout << "Element is not present in the list" << endl;
+    // }
+
+
+    // ----------------------- Searching -----------------------
+
+    int iSize = 0;
+    cout << "Enter the number of elements : ";
+    cin >> iSize;
+
+    Searching<int> s(iSize);
+
+    s.Accept();
+    s.Display();
+
+    int idx = s.LinearSearch(12);
+
+    if(idx != -1)
     {
-        cout << "Element is present in the list" << endl;
+        cout << "Element found at index : " << idx << endl;
     }
     else
     {
-        cout << "Element is not present in the list" << endl;
+        cout << "Element not found" << endl;
     }
 
     return 0;
