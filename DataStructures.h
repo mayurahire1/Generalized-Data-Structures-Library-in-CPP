@@ -271,6 +271,8 @@ namespace DataStructures
             void Display();
 
             int LinearSearch(T);
+            int BiDirectionalSearch(T);
+            int BinarySearch(T);
     };
 }
 
@@ -2058,6 +2060,74 @@ int DataStructures :: Searching<T> :: LinearSearch(T key)
         if(Arr[i] == key)
         {
             return i;
+        }
+    }
+    return -1;
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  BiDirectionalSearch
+//    Input         :  T
+//    Output        :  int
+//    Description   :  Search the element, if found return index 
+//                     otherwise return -1
+//
+////////////////////////////////////////////////////////////
+template<class T>
+int DataStructures :: Searching<T> :: BiDirectionalSearch(T key)
+{
+    int Start = 0;
+    int End = iSize -1;
+
+    while (Start <= End)
+    {
+        if(Arr[Start] == key)
+        {
+            return Start;
+        }
+        else if(Arr[End] == key)
+        {
+            return End;
+        }
+
+        Start++;
+        End--;
+    }
+
+    return -1;
+}
+
+////////////////////////////////////////////////////////////
+//
+//    Function name :  BinarySearch
+//    Input         :  T
+//    Output        :  int
+//    Description   :  Search the element, if found return index 
+//                     otherwise return -1
+//
+////////////////////////////////////////////////////////////
+template<class T>
+int DataStructures :: Searching<T> :: BinarySearch(T key)
+{
+    int start = 0;
+    int end = iSize -1;
+
+    while(start <= end)
+    {
+        int mid = start + ((end - start) / 2);
+
+        if(Arr[mid] == key)
+        {
+            return mid;
+        }
+        else if(key < Arr[mid])
+        {
+            end = mid - 1;
+        }
+        else
+        {
+            start = mid + 1;
         }
     }
 

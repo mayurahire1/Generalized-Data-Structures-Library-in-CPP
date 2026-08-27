@@ -288,7 +288,29 @@ int main()
     s.Accept();
     s.Display();
 
-    int idx = s.LinearSearch(12);
+    // int idx = s.LinearSearch(12);
+
+    // if(idx != -1)
+    // {
+    //     cout << "Element found at index : " << idx << endl;
+    // }
+    // else
+    // {
+    //     cout << "Element not found" << endl;
+    // }
+
+    // int idx = s.BiDirectionalSearch(12);
+
+    // if(idx != -1)
+    // {
+    //     cout << "Element found at index : " << idx << endl;
+    // }
+    // else
+    // {
+    //     cout << "Element not found" << endl;
+    // }
+
+    int idx = s.BinarySearch(12);
 
     if(idx != -1)
     {
