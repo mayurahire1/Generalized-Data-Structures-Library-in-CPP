@@ -273,6 +273,8 @@ namespace DataStructures
             int LinearSearch(T);
             int BiDirectionalSearch(T);
             int BinarySearch(T);
+
+            bool isSorted();
     };
 }
 
@@ -2100,6 +2102,26 @@ int DataStructures :: Searching<T> :: BiDirectionalSearch(T key)
 
 ////////////////////////////////////////////////////////////
 //
+//    Function name :  isSorted
+//    Output        :  boolean
+//    Description   :  Check whether given array is sorted or not.
+//
+////////////////////////////////////////////////////////////
+template <class T>
+bool DataStructures :: Searching<T> :: isSorted()
+{
+    for(int i = 0; i < iSize - 1; i++)
+    {
+        if(Arr[i] > Arr[i + 1])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+////////////////////////////////////////////////////////////
+//
 //    Function name :  BinarySearch
 //    Input         :  T
 //    Output        :  int
@@ -2112,6 +2134,12 @@ int DataStructures :: Searching<T> :: BinarySearch(T key)
 {
     int start = 0;
     int end = iSize -1;
+
+    if(isSorted() == false)
+    {
+        cout << "For binary search Array elements should be in sorted order." << endl;
+        LinearSearch(key);
+    }
 
     while(start <= end)
     {
